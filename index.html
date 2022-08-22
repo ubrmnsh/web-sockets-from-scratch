@@ -4,18 +4,17 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>WebSockets</title>
+    <title>WebSocket Client</title>
 </head>
 <body>
- 
     <output class="messages"</output>
     <script>
         const message = document.querySelector(".messages");
         const socket = new WebSocket('ws://localhost:5000')
-        socket.onopen = (e) => console.log(`Connected`)
+        socket.onopen = (event) => console.log(`WebSocket Connected`)
         socket.onmessage = (msg) => console.log(`New Message`, msg)
-        socket.onerror = (err) => console.error(`Something went wrong`, err)
-        socket.onclose = (e) => console.log(`Disconnected`)
+        socket.onerror = (error) => console.error(`Something went wrong`, error)
+        socket.onclose = (event) => console.log(`WebSocket Disconnected`)
     </script>
 </body>
 </html>
